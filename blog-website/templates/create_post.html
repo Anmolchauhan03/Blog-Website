@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block title %}Admin Panel{% endblock %}
+
+{% block content %}
+    <div class="admin-panel">
+        <h2>Create a New Post</h2>
+        <form method="POST">
+            <!-- Title Field -->
+            <div class="form-group">
+                <label for="title">Title</label>
+                <input type="text" id="title" name="title" placeholder="Enter the title" required>
+            </div>
+
+            <!-- Content Field -->
+            <div class="form-group">
+                <label for="content">Content</label>
+                <textarea id="content" name="content" placeholder="Enter the content" required></textarea>
+            </div>
+
+            <!-- Author Field -->
+            <div class="form-group">
+                <label for="author">Author</label>
+                <input type="text" id="author" name="author" placeholder="Enter the author's name" required>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit" class="btn btn-primary">Post</button>
+        </form>
+    </div>
+{% endblock %}

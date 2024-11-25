@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Home</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <!-- Navbar Section -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <!-- Logo Section -->
+            <a href="{{ url_for('home') }}" class="navbar-logo">
+                <span class="logo-text">Blog</span><span class="logo-highlight">Site</span>
+            </a>
+            <ul class="navbar-links">
+                <li><a href="{{ url_for('home') }}">Home</a></li>
+                <li><a href="{{ url_for('create_post') }}">Create Post</a></li>
+                <li><a href="{{ url_for('login') }}">Login</a></li>
+                <li><a href="{{ url_for('register') }}">Register</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1>Welcome to the Blog Website</h1>
+
+        <!-- Website Introduction Section -->
+        <section class="intro">
+            <p>Welcome to our blog, a place where creativity meets expression! Here, you will find a wide range of articles, stories, and insights across various topics, from technology and lifestyle to personal growth and entertainment.</p>
+            <p>Our mission is to provide a platform for people to share their ideas, experiences, and knowledge with the world. Whether you are here to explore new topics or contribute your own thoughts, you'll find a welcoming community of readers and writers alike.</p>
+            <p>Stay updated with the latest posts, interact with authors, and be part of a growing community that values knowledge sharing!</p>
+        </section>
+
+        <!-- Button to Create Post -->
+        <a href="{{ url_for('create_post') }}" class="btn">Create Post</a>
+
+        <!-- Display Blog Posts -->
+        <section class="posts">
+            <h2>Recent Posts</h2>
+            {% for post in posts %}
+                <div class="post">
+                    <h3><a href="{{ url_for('post', post_id=post.id) }}">{{ post.title }}</a></h3>
+                    <p>{{ post.content[:100] }}...</p>
+                </div>
+            {% endfor %}
+        </section>
+    </div>
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        <div class="social-links">
+            <a href="https://www.facebook.com/yourprofile" target="_blank" class="social-icon facebook">Facebook</a>
+            <a href="https://twitter.com/yourprofile" target="_blank" class="social-icon twitter">Twitter</a>
+            <a href="https://www.linkedin.com/in/yourprofile" target="_blank" class="social-icon linkedin">LinkedIn</a>
+            <a href="https://www.youtube.com/c/yourchannel" target="_blank" class="social-icon youtube">YouTube</a>
+            <a href="https://github.com/yourusername" target="_blank" class="social-icon github">GitHub</a>
+        </div>
+        <p>&copy; 2024 Blog Website. All Rights Reserved. <br> Anmol Rajput</p>
+    </footer>
+
+</body>
+</html>
